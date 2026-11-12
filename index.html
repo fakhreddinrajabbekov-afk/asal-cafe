@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Asal | cake &amp; coffee — кафе в центре Хорога</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&family=Manrope:wght@400;500;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff6dc; --card:#ffffff; --text:#2b1a0c; --muted:#7a6246; --line:#f0dcab;
+  --honey:#f4a900; --honey2:#ffc83d; --brown:#2b1a0c; --lime:#e8ea2b; --price:#2b1a0c;
+  --display:"Unbounded","Arial Black",Arial,sans-serif; --body:"Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#1c1209;--card:#2a1c0f;--text:#fff1cf;--muted:#c4a672;--line:#4a3319;}
+}
+:root[data-theme="dark"]{--bg:#1c1209;--card:#2a1c0f;--text:#fff1cf;--muted:#c4a672;--line:#4a3319;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(160deg,var(--honey2),var(--honey) 70%);color:var(--brown);padding:54px 0 64px;margin-bottom:70px}
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66v34M28 0v0M0 84l28 16 28-16V50L28 34 0 50v34' fill='none' stroke='%23b87800' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative}
+.drip{position:absolute;left:0;bottom:-69px;width:100%;height:70px;display:block}
+.drip path{fill:var(--honey)}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;background:var(--brown);color:var(--honey2);padding:7px 14px;border-radius:99px;margin-bottom:26px}
+.dot{width:9px;height:9px;border-radius:50%;background:#9b8a70}
+.status.open .dot{background:#6ee585}
+.logo{font-family:var(--display);font-weight:300;font-size:clamp(70px,24vw,160px);line-height:1;letter-spacing:.04em;margin:0}
+.sub{font:500 clamp(18px,5vw,24px)/1.3 var(--display);margin:12px 0 0}
+.lead{font-size:18px;margin:18px 0 26px;max-width:28ch;font-weight:500}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:99px;font-weight:800;text-decoration:none;border:2px solid var(--brown);transition:transform .15s}
+.btn:active{transform:scale(.96)}
+.btn.main{background:var(--brown);color:var(--honey2)}
+.btn.ghost{background:transparent;color:var(--brown)}
+
+/* flying bee: the one moving moment */
+.fly{position:absolute;right:6%;top:54px;width:86px;animation:fly 9s ease-in-out infinite;pointer-events:none}
+.fly svg{width:100%;height:auto;display:block}
+.wing{transform-origin:50% 100%;animation:flap .12s ease-in-out infinite alternate}
+@keyframes flap{from{transform:rotate(-14deg) scaleY(1)}to{transform:rotate(10deg) scaleY(.7)}}
+@keyframes fly{0%,100%{transform:translate(0,0) rotate(-8deg)}25%{transform:translate(-40px,26px) rotate(6deg)}50%{transform:translate(-10px,60px) rotate(-4deg)}75%{transform:translate(26px,22px) rotate(8deg)}}
+
+/* SECTIONS */
+section{padding:6px 0 30px}
+h2{font:500 clamp(24px,7vw,34px)/1.15 var(--display);margin:0 0 6px;display:flex;align-items:center;gap:12px}
+h2 svg{width:42px;height:auto;flex:none}
+.note{color:var(--muted);margin:0 0 22px;font-size:15px}
+.about{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:22px 24px;margin:0 0 34px;position:relative}
+.about p{margin:0;font-size:17px}
+.about b{font-family:var(--display);font-weight:500}
+.cat{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:18px 22px 8px;margin-bottom:18px}
+.cat h3{font:500 18px/1.2 var(--display);margin:0 0 6px;display:flex;align-items:center;gap:10px}
+.hex{width:26px;height:30px;background:var(--honey);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);flex:none}
+.menu{list-style:none;margin:0;padding:0}
+.menu li{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-top:1px dashed var(--line)}
+.menu li:first-child{border-top:0}
+.menu .n{font-weight:800}
+.menu .d{display:block;color:var(--muted);font-weight:400;font-size:14px}
+.menu .p{margin-left:auto;font-weight:800;white-space:nowrap;background:var(--honey2);color:var(--brown);padding:2px 12px;border-radius:99px;font-size:14px}
+
+.info{display:grid;gap:14px}
+.box{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:20px 22px}
+.box b{display:block;font-family:var(--display);font-weight:500;font-size:15px;margin-bottom:8px}
+.box p{margin:0}
+table{border-collapse:collapse;width:100%}
+td{padding:3px 0}td:last-child{text-align:right;font-weight:800}
+.off{color:var(--muted)}
+.cta{display:inline-block;background:var(--honey);color:var(--brown);font-weight:800;padding:10px 20px;border-radius:99px;text-decoration:none}
+footer{background:var(--brown);color:#e9cf93;padding:34px 0 40px;margin-top:20px;text-align:center;font-size:14px}
+footer svg{width:46px;height:auto;margin-bottom:8px}
+@media (min-width:640px){.info{grid-template-columns:1fr 1fr}.info .wide{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bee" viewBox="0 0 100 80">
+      <g class="wing"><ellipse cx="40" cy="22" rx="16" ry="20" fill="#fff" fill-opacity=".75" stroke="#2b1a0c" stroke-width="2" transform="rotate(-20 40 22)"/></g>
+      <g class="wing"><ellipse cx="60" cy="20" rx="16" ry="20" fill="#fff" fill-opacity=".75" stroke="#2b1a0c" stroke-width="2" transform="rotate(20 60 20)"/></g>
+      <ellipse cx="50" cy="50" rx="28" ry="22" fill="#ffd23f" stroke="#2b1a0c" stroke-width="3"/>
+      <path d="M38 30v40M52 28v44M65 31v38" stroke="#2b1a0c" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="80" cy="46" r="3.2" fill="#2b1a0c"/>
+      <path d="M80 36q6-12 14-12M74 34q2-12 8-16" stroke="#2b1a0c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M22 54l-12 4" stroke="#2b1a0c" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="fly" aria-hidden="true"><svg viewBox="0 0 100 80"><use href="#bee"/></svg></div>
+  <div class="wrap">
+    <div class="status" id="status" role="status"><span class="dot"></span><span id="st">Пн–Сб 9:00–21:00</span></div>
+    <h1 class="logo" aria-label="ASAL">ΛSΛL</h1>
+    <p class="sub">cake &amp; coffee</p>
+    <p class="lead">Сладкое, как мёд. Уютное кафе в центре Хорога.</p>
+    <div class="btns">
+      <a class="btn main" href="tel:+992977404040">Позвонить</a>
+      <a class="btn ghost" href="#menu">Меню</a>
+      <a class="btn ghost" href="https://www.instagram.com/cake.coffee.asal" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <svg class="drip" viewBox="0 0 400 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0H400V12C390 12 388 30 384 48C382 62 366 62 364 48C360 30 352 12 340 12C330 12 326 22 322 34C320 44 306 44 304 34C300 22 296 12 280 12C264 12 262 26 258 56C256 70 238 70 236 56C232 28 226 12 210 12C194 12 192 20 188 30C186 40 172 40 170 30C166 18 160 12 144 12C128 12 126 40 122 52C120 64 104 64 102 52C98 34 90 12 76 12C62 12 58 26 54 40C52 50 38 50 36 40C32 26 26 12 12 12H0Z"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <div class="about">
+    <p><b>Асал</b> значит «мёд». Поэтому у нас всё по-медовому: тёплый кофе, нежные десерты и пицца из печи. Заходите посидеть в центре Хорога.</p>
+  </div>
+
+  <section id="menu">
+    <h2><svg viewBox="0 0 100 80" aria-hidden="true"><use href="#bee"/></svg>Меню</h2>
+    <p class="note">Цены в сомони. Торты на заказ и актуальное меню уточняйте по телефону.</p>
+
+    <div class="cat">
+      <h3><span class="hex"></span>Кофе</h3>
+      <ul class="menu">
+        <li><span><span class="n">Эспрессо</span></span><span class="p">12</span></li>
+        <li><span><span class="n">Американо</span></span><span class="p">15</span></li>
+        <li><span><span class="n">Капучино</span><span class="d">эспрессо, молоко, плотная пенка</span></span><span class="p">20</span></li>
+        <li><span><span class="n">Латте с мёдом</span><span class="d">наш фирменный, сладкий и мягкий</span></span><span class="p">24</span></li>
+        <li><span><span class="n">Чай</span><span class="d">чёрный, зелёный, травяной</span></span><span class="p">10</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h3><span class="hex"></span>Десерты</h3>
+      <ul class="menu">
+        <li><span><span class="n">Медовик</span><span class="d">нежные коржи, сметанный крем</span></span><span class="p">25</span></li>
+        <li><span><span class="n">Чизкейк</span></span><span class="p">30</span></li>
+        <li><span><span class="n">Наполеон</span></span><span class="p">25</span></li>
+        <li><span><span class="n">Торт на заказ</span><span class="d">вес, начинку и оформление обсудим по телефону</span></span><span class="p">по запросу</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h3><span class="hex"></span>Пицца</h3>
+      <ul class="menu">
+        <li><span><span class="n">Маргарита</span><span class="d">томатный соус, моцарелла</span></span><span class="p">45</span></li>
+        <li><span><span class="n">Пепперони</span></span><span class="p">55</span></li>
+        <li><span><span class="n">Мясная</span></span><span class="p">60</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <h2>Как нас найти</h2>
+    <p class="note">Центр Хорога</p>
+    <div class="info">
+      <div class="box">
+        <b>Часы работы</b>
+        <table>
+          <tr><td>Пн–Сб</td><td>9:00–21:00</td></tr>
+          <tr><td class="off">Вс</td><td class="off">выходной</td></tr>
+        </table>
+      </div>
+      <div class="box">
+        <b>Телефон</b>
+        <p><a href="tel:+992977404040">977 40 40 40</a></p>
+      </div>
+      <div class="box wide">
+        <b>Карта</b>
+        <p><a class="cta" href="https://www.google.com/maps/search/?api=1&amp;query=Asal+cake+coffee+Khorog" target="_blank" rel="noopener">Открыть на карте</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <svg viewBox="0 0 100 80" aria-hidden="true"><use href="#bee"/></svg>
+  <div>Asal | cake &amp; coffee, Хорог</div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var n=new Date(Date.now()+5*3600*1000), d=n.getUTCDay(), m=n.getUTCHours()*60+n.getUTCMinutes();
+    var open=d!==0 && m>=540 && m<1260;
+    var el=document.getElementById('status'), t=document.getElementById('st');
+    if(open){el.classList.add('open');t.textContent='Сейчас открыто до 21:00';}
+    else{t.textContent=(d===0)?'Сегодня выходной, ждём в понедельник с 9:00':'Сейчас закрыто, работаем с 9:00';}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
